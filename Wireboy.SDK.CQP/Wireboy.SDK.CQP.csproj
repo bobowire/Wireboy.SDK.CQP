@@ -71,7 +71,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="me.cqp.wireboy.pTest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

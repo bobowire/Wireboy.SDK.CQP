@@ -11,7 +11,7 @@ namespace Wireboy.SDK.CQP
 {
     public class Logger : ILogger
     {
-        MySqlConnection mySqlConnection = new MySqlConnection("server=39.105.116.163;user id=wireboy;password=admin@2018;persistsecurityinfo=True;database=CoreWebDB;port=3306");
+        MySqlConnection mySqlConnection = new MySqlConnection("[连接字符串]");
         object obj = new object();
         bool isBuzy = false;
         Dictionary<int, List<string>> sqlDic = new Dictionary<int, List<string>>();
