@@ -24,7 +24,11 @@ namespace Wireboy.SDK.CQP
         public void GroupMsg(GroupMsgContext groupMsgContext)
         {
             string sql = string.Format("insert into QQGroupLog(Msg,QQ,Time) values('{0}','{1}','{2}');", groupMsgContext.msg, groupMsgContext.fromQQ, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            ExcuteCmd(sql);
+        }
 
+        private void ExcuteCmd(string sql)
+        {
             if (!isBuzy)
             {
                 lock (obj)
@@ -49,7 +53,6 @@ namespace Wireboy.SDK.CQP
                             //将数据插入数据库
                             MySqlCommand mySqlCommand = new MySqlCommand(allSql, mySqlConnection);
                             mySqlCommand.ExecuteNonQuery();
-                            //等客户要求，付费移除
                             Thread.Sleep(200);
                         }
                         while (sqlDic[index].Count > 0);
@@ -61,25 +64,13 @@ namespace Wireboy.SDK.CQP
                         sqlDic[index].Add(sql);
                     }
                 }
-            }else
+            }
+            else
             {
                 sqlDic[index].Add(sql);
             }
-
         }
 
-        private Task ExcuteCmd(string sql)
-        {
-            return Task.Run(() =>
-            {
-                lock (obj)
-                {
-                    MySqlCommand mySqlCommand = new MySqlCommand(sql, mySqlConnection);
-                    if (mySqlConnection.State == System.Data.ConnectionState.Connecting)
-                    mySqlCommand.BeginExecuteNonQuery();
-                }
-            });
-        }
         ~Logger()
         {
             if (mySqlConnection.State != System.Data.ConnectionState.Closed)

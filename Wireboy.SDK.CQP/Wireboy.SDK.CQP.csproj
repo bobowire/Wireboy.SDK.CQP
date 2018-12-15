@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\酷Q Air\app\</OutputPath>
+    <OutputPath>..\..\酷Q Air\app\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -85,12 +85,32 @@
     <Compile Include="EventsModule.cs" />
     <Compile Include="Core\Export\CQFuncs.cs" />
     <Compile Include="Core\Export\CQEvents.cs" />
-    <Compile Include="Events\Enums\GroupAdminChangeType.cs" />
+    <Compile Include="Events\Enums\RequestGroupAddType.cs" />
+    <Compile Include="Events\Enums\RequestFriendAddType.cs" />
+    <Compile Include="Events\Enums\FriendAddType.cs" />
+    <Compile Include="Events\Enums\GroupAdminType.cs" />
     <Compile Include="Events\Enums\GroupMemberChangedType.cs" />
-    <Compile Include="Events\Enums\GroupMemberDecreaseReason.cs" />
-    <Compile Include="Events\Enums\GroupMemberIncreasedReason.cs" />
-    <Compile Include="Events\Enums\PrivateMessageFromType.cs" />
+    <Compile Include="Events\Enums\GroupMemberDecreaseType.cs" />
+    <Compile Include="Events\Enums\GroupMemberIncreasedType.cs" />
+    <Compile Include="Events\Enums\DiscussMessageType.cs" />
+    <Compile Include="Events\Enums\GroupMessageType.cs" />
+    <Compile Include="Events\Enums\PrivateMessageType.cs" />
+    <Compile Include="Events\Interfaces\IGroupUploadEvent.cs" />
+    <Compile Include="Events\Interfaces\IFriendAddEvent.cs" />
+    <Compile Include="Events\Interfaces\IRequestAddFriendEvent.cs" />
+    <Compile Include="Events\Interfaces\IGroupMemberIncreaseEvent.cs" />
+    <Compile Include="Events\Interfaces\IGroupMemberDecreaseEvent.cs" />
+    <Compile Include="Events\Interfaces\IGroupAdminEvent.cs" />
+    <Compile Include="Events\Interfaces\IDiscussMsgEvent.cs" />
+    <Compile Include="Events\Interfaces\IPrivateMsgEvent.cs" />
+    <Compile Include="Events\Interfaces\IDisableEvent.cs" />
+    <Compile Include="Events\Interfaces\IEnableEvent.cs" />
+    <Compile Include="Events\Interfaces\IExitEvent.cs" />
+    <Compile Include="Events\Interfaces\IStartupEvent.cs" />
+    <Compile Include="Events\Interfaces\IInitializeEvent.cs" />
+    <Compile Include="Events\RequestGroupAddEvent.cs" />
     <Compile Include="Events\GroupMsgEvent.cs" />
+    <Compile Include="Events\Interfaces\IRequestAddGroupEvent.cs" />
     <Compile Include="Events\Interfaces\IGroupMsgEvent.cs" />
     <Compile Include="Events\Interfaces\IWireboyEvent.cs" />
     <Compile Include="Modles\AppInfo_Const.cs" />

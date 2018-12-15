@@ -8,34 +8,30 @@ using Wireboy.SDK.CQP.Events.Enums;
 
 namespace Wireboy.SDK.CQP.Events
 {
-    [Description("酷Q事件:Type=2 群消息")]
-    public interface IGroupMsgEvent : IWireboyEvent
+    [Description("酷Q事件:Type=4 讨论组消息")]
+    public interface IDiscussMsgEvent : IWireboyEvent
     {
-        void Handle(GroupMsgContext context);
+        void Handle(DiscussMsgContext context);
     }
 
-    public class GroupMsgContext
+    public class DiscussMsgContext
     {
         /// <summary>
         /// 消息类型
         /// </summary>
-        public GroupMessageType subType;
+        public DiscussMessageType subType;
         /// <summary>
         /// 消息Id
         /// </summary>
         public int msgId;
         /// <summary>
-        /// 来源群
+        /// 来源讨论组
         /// </summary>
-        public long fromGroup;
+        public long fromDiscuss;
         /// <summary>
         /// 来源QQ
         /// </summary>
         public long fromQQ;
-        /// <summary>
-        /// 匿名信息
-        /// </summary>
-        public string fromAnonymous;
         /// <summary>
         /// 消息内容
         /// </summary>

@@ -15,6 +15,7 @@ namespace Wireboy.SDK.CQP
         {
             base.Load(builder);
             builder.RegisterType<GroupMsgEvent>().As<IGroupMsgEvent>().InstancePerLifetimeScope();
+            builder.RegisterType<RequestAddGroupEvent>().As<IRequestAddGroupEvent>().InstancePerLifetimeScope();
             builder.RegisterType<Logger>().As<ILogger>().SingleInstance();
         }
     }

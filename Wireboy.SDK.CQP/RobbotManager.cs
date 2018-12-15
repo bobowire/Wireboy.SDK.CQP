@@ -30,6 +30,13 @@ namespace Wireboy.SDK.CQP
                 return _instance;
             }
         }
+        public static T Resolve<T>()
+        {
+            if (Instance.Container.IsRegistered<T>())
+                return Instance.Container.Resolve<T>();
+            else
+                return default(T);
+        }
 
     }
     public class ManageerInstance

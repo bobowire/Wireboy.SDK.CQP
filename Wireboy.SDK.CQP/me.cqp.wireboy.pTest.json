@@ -4,10 +4,10 @@
 {
 	"ret": 1, // 返回码，固定为1
 	"apiver": 9, // Api版本，本SDK为9
-	"name": "酷Q样例应用 for C#", // 应用名称
+	"name": "WireboyTools", // 应用名称
 	"version": "1.0.0", // 应用版本
 	"version_id": 1, // 应用顺序版本（每次发布时至少+1）
-	"author": "JieGG", // 应用作者
+	"author": "wireboy", // 应用作者
 	"description": "酷Q样例应用 for C# (V9应用机制)",
 	"event": [ // 事件列表，同一事件类型可重复定义（发布前请删除无用事件）
 		{

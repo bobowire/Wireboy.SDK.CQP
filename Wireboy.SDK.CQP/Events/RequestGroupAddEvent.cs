@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Wireboy.SDK.CQP.Events
 {
-    public class GroupMsgEvent : IGroupMsgEvent
+    public class RequestAddGroupEvent : IRequestAddGroupEvent
     {
         ILogger _logger;
-        public GroupMsgEvent(ILogger logger)
+        public RequestAddGroupEvent(ILogger logger)
         {
             _logger = logger;
         }
-        public void Handle(GroupMsgContext context)
+        public void Handle(RequestAddGroupContext context)
         {
-            if (context.fromGroup == 417159195)
-            {
-                _logger.GroupMsg(context);
-            }
         }
     }
 }
