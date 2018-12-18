@@ -20,13 +20,13 @@ No，目前还不是，因为你必须使用该项目进行插件开发，还不
 
 新增GroupMsgEvent类，继承IGroupMsgEvent接口
 
-(Images/step-1.png)
+![step-1](Images/step-1.png)
 
 第二步：注册接口
 
 在CoreModule中注册接口
 
-(Images/step-2.png)
+![step-2](Images/step-2.png)
 
 ## 最后**最重要的，一定要Star一下！**
 
