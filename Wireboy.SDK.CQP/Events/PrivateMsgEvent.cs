@@ -7,18 +7,18 @@ using Wireboy.SDK.CQP.Core.Models;
 
 namespace Wireboy.SDK.CQP.Events
 {
-    public class GroupMsgEvent : IGroupMsgEvent
+    public class PrivateMsgEvent : IPrivateMsgEvent
     {
         ILogger _logger;
-        public GroupMsgEvent(ILogger logger)
+        public PrivateMsgEvent(ILogger logger)
         {
             _logger = logger;
         }
-        public void Handle(GroupMsgContext context)
+        public void Handle(PrivateMsgContext context)
         {
-            if (context.fromGroup == 417159195)
+            if (context.fromQQ == 1195585531)
             {
-                _logger.GroupMsg(context);
+                StrangerInfo info = CQ.GetStrangerInfo(context.fromQQ, false);
             }
         }
     }

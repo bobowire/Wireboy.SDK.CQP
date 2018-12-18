@@ -9,12 +9,23 @@ using Wireboy.SDK.CQP.Events;
 
 namespace Wireboy.SDK.CQP
 {
-    public class EventsModule : Module
+    public class CoreModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
+            LoadEvents(builder);
+            LoadUtils(builder);
+        }
+        private void LoadEvents(ContainerBuilder builder)
+        {
             builder.RegisterType<GroupMsgEvent>().As<IGroupMsgEvent>().InstancePerLifetimeScope();
+            builder.RegisterType<RequestAddGroupEvent>().As<IRequestAddGroupEvent>().InstancePerLifetimeScope();
+            builder.RegisterType<PrivateMsgEvent>().As<IPrivateMsgEvent>().InstancePerLifetimeScope();
+        }
+
+        private void LoadUtils(ContainerBuilder builder)
+        {
             builder.RegisterType<Logger>().As<ILogger>().SingleInstance();
         }
     }

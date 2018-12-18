@@ -4,25 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wireboy.SDK.CQP.Core.Enums
+namespace Wireboy.SDK.CQP.Events.Enums
 {
     /// <summary>
-    /// 表示性别的枚举
+    /// 群消息类型
     /// </summary>
-    public enum Sex
+    public enum GroupAdminType
     {
-        None = -1,
         /// <summary>
-        /// 男性
+        /// 未知类型
         /// </summary>
-        Man = 0,
+        Unknown = 0,
         /// <summary>
-        /// 女性 
+        /// 设为管理员
         /// </summary>
-        Woman = 1,
+        ToAdmin = 1,
         /// <summary>
-        /// 未知
+        /// 取消管理员
         /// </summary>
-        Unknow = 2551
+        ToMember = 2
     }
 }

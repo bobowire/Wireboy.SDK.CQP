@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wireboy.SDK.CQP.Modles
+namespace Wireboy.SDK.CQP.Events.Enums
 {
-    public static class AppInfo_Const
+    /// <summary>
+    /// 群消息类型
+    /// </summary>
+    public enum DiscussMessageType
     {
         /// <summary>
-        /// API版本
+        /// 未知
         /// </summary>
-        public static int AppVersion = 9;
+        Unknown = 0,
         /// <summary>
-        /// AppId
+        /// 讨论组消息
         /// </summary>
-        public static string AppId = "me.cqp.wireboy.pTest";
+        DiscussMsg = 1
     }
 }

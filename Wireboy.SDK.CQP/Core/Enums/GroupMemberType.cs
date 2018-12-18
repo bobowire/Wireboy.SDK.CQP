@@ -9,7 +9,7 @@ namespace Wireboy.SDK.CQP.Core.Enums
     /// <summary>
     /// 群成员类型
     /// </summary>
-    public enum GroupmemberType
+    public enum GroupMemberType
     {
         /// <summary>
         /// 成员

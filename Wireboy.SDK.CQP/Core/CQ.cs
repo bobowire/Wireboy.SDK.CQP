@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Wireboy.SDK.CQP.Core.Export;
 using Wireboy.SDK.CQP.Core.Enums;
+using Wireboy.SDK.CQP.Core;
+using Wireboy.SDK.CQP.Core.Models;
 
 namespace Wireboy.SDK.CQP
 {
@@ -280,9 +282,13 @@ namespace Wireboy.SDK.CQP
         /// <param name="qqId">目标QQ</param>
         /// <param name="isCache">不使用缓存</param>
         /// <returns></returns>
-        public static string GetGroupMemberInfoV2(long groudId, long qqId, bool isCache)
+        public static GroupMemberInfo GetGroupMemberInfoV2(long groudId, long qqId, bool isCache)
         {
-            return CQFuncs.CQ_getGroupMemberInfoV2(RobbotManager.AuthCode, groudId, qqId, isCache);
+            string jsonData = CQFuncs.CQ_getGroupMemberInfoV2(RobbotManager.AuthCode, groudId, qqId, isCache);
+            GroupMemberInfo groupMemberInfo = new GroupMemberInfo();
+            JsonUtils utils = new JsonUtils(jsonData);
+            utils.Resolve(groupMemberInfo);
+            return groupMemberInfo;
         }
 
         /// <summary>
@@ -290,9 +296,13 @@ namespace Wireboy.SDK.CQP
         /// </summary>
         /// <param name="groupId">目标群</param>
         /// <returns></returns>
-        public static string GetGroupMemberList(long groupId)
+        public static List<GroupMemberInfo> GetGroupMemberList(long groupId)
         {
-            return CQFuncs.CQ_getGroupMemberList(RobbotManager.AuthCode, groupId);
+            List<GroupMemberInfo> memberList = new List<GroupMemberInfo>();
+            string jsonData = CQFuncs.CQ_getGroupMemberList(RobbotManager.AuthCode, groupId);
+            JsonUtils utils = new JsonUtils(jsonData);
+            utils.ResolveList(memberList);
+            return memberList;
         }
 
         /// <summary>
@@ -309,9 +319,13 @@ namespace Wireboy.SDK.CQP
         /// <param name="qqId">目标QQ</param>
         /// <param name="notCache">是否不使用缓存</param>
         /// <returns></returns>
-        public static string GetStrangerInfo(long qqId, bool notCache)
+        public static StrangerInfo GetStrangerInfo(long qqId, bool notCache)
         {
-            return CQFuncs.CQ_getStrangerInfo(RobbotManager.AuthCode, qqId, notCache);
+            string jsonData = CQFuncs.CQ_getStrangerInfo(RobbotManager.AuthCode, qqId, notCache);
+            StrangerInfo strangerInfo = new StrangerInfo();
+            JsonUtils utils = new JsonUtils(jsonData);
+            utils.Resolve(strangerInfo);
+            return strangerInfo;
         }
     }
 }

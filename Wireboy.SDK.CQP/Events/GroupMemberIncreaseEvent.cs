@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wireboy.SDK.CQP.Core.Models;
 
 namespace Wireboy.SDK.CQP.Events
 {
-    public class GroupMsgEvent : IGroupMsgEvent
+    public class GroupMemberIncreaseEvent : IGroupMemberIncreaseEvent
     {
         ILogger _logger;
-        public GroupMsgEvent(ILogger logger)
+        public GroupMemberIncreaseEvent(ILogger logger)
         {
             _logger = logger;
         }
-        public void Handle(GroupMsgContext context)
+        public void Handle(GroupMemberIncreaseContext context)
         {
             if (context.fromGroup == 417159195)
             {
-                _logger.GroupMsg(context);
+                CQ.GetGroupMemberInfoV2(context.fromGroup, context.beingOperateQQ, false);
             }
         }
     }

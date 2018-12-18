@@ -12,7 +12,7 @@ namespace Wireboy.SDK.CQP
         public IContainer LoadPlugs()
         {
             ContainerBuilder builder = new ContainerBuilder();
-            builder.RegisterModule(new EventsModule());
+            builder.RegisterModule(new CoreModule());
             IContainer container = builder.Build(); 
             return container;
         }
