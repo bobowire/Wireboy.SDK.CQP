@@ -16,7 +16,7 @@ namespace Wireboy.SDK.CQP.Events
         }
         public void Handle(GroupMsgContext context)
         {
-            if (context.fromGroup == 417159195)
+            if (context.fromGroup == 417159195 || context.fromGroup == 706310655)
             {
                 _logger.GroupMsg(context);
             }

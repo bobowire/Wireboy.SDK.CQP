@@ -14,7 +14,7 @@ namespace Wireboy.SDK.CQP
         /// <summary>
         /// MySql数据库链接，目前仅支持mysql
         /// </summary>
-        MySqlConnection mySqlConnection = new MySqlConnection("[mysql连接字符串]");
+        MySqlConnection mySqlConnection = new MySqlConnection("server=[mysql数据库ip];user id=wireboy;password=[数据库密码];persistsecurityinfo=True;database=CoreWebDB;port=3306");
         /// <summary>
         /// 写数据库的异步锁
         /// </summary>
@@ -43,7 +43,7 @@ namespace Wireboy.SDK.CQP
         /// <param name="groupMsgContext"></param>
         public void GroupMsg(GroupMsgContext groupMsgContext)
         {
-            string sql = string.Format("insert into QQGroupLog(Msg,QQ,Time) values('{0}','{1}','{2}');", groupMsgContext.msg, groupMsgContext.fromQQ, DateTime.Now.ToString("yyyyMMddHHmmss"));
+            string sql = string.Format("insert into QQGroupLog(Msg,QQ,Time,FromGroup) values('{0}','{1}','{2}','{3}');", groupMsgContext.msg, groupMsgContext.fromQQ, DateTime.Now.ToString("yyyyMMddHHmmss"),groupMsgContext.fromGroup);
             ExcuteCmd(sql);
         }
 

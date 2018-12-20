@@ -7,6 +7,7 @@ using Wireboy.SDK.CQP.Core.Export;
 using Wireboy.SDK.CQP.Core.Enums;
 using Wireboy.SDK.CQP.Core;
 using Wireboy.SDK.CQP.Core.Models;
+using System.IO;
 
 namespace Wireboy.SDK.CQP
 {
@@ -326,6 +327,14 @@ namespace Wireboy.SDK.CQP
             JsonUtils utils = new JsonUtils(jsonData);
             utils.Resolve(strangerInfo);
             return strangerInfo;
+        }
+        public static string GetImageDir()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "image");
+        }
+        public static string GetRecordDir()
+        {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "record");
         }
     }
 }

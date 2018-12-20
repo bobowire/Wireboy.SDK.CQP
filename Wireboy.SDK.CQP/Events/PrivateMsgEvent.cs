@@ -18,7 +18,7 @@ namespace Wireboy.SDK.CQP.Events
         {
             if (context.fromQQ == 1195585531)
             {
-                StrangerInfo info = CQ.GetStrangerInfo(context.fromQQ, false);
+                context.fromQQ.SendPrivateMsg(context.msg);
             }
         }
     }

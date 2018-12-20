@@ -78,8 +78,11 @@
     <Compile Include="Core\Enums\LogerLevel.cs" />
     <Compile Include="Core\Enums\GroupMemberType.cs" />
     <Compile Include="Core\Enums\GroupRequestType.cs" />
+    <Compile Include="Core\Enums\QQMsgEnums.cs" />
     <Compile Include="Core\Enums\ResponseType.cs" />
     <Compile Include="Core\Enums\Sex.cs" />
+    <Compile Include="Core\Extensions\LongExtension.cs" />
+    <Compile Include="Core\Extensions\StringExtension.cs" />
     <Compile Include="Core\JsonUtils.cs" />
     <Compile Include="Core\Models\GroupInfo.cs" />
     <Compile Include="Core\Models\GroupMemberInfo.cs" />
