@@ -18,6 +18,10 @@ No，目前还不是，因为你必须使用该项目进行插件开发，还不
 
 ![sdk-struct](Images/sdk-struct.png)
 
+## 范例：发送消息
+
+![sample-sendMsg](Images/sample-sendMsg.png) 
+
 ## 实现第一个机器人（记录Q群消息）
 
 第一步：实现接口
