@@ -24,6 +24,17 @@ namespace Wireboy.SDK.CQP.Core
         }
 
         /// <summary>
+        /// 酷Q事件：OpenConsole
+        /// </summary>
+        /// <returns></returns>
+        [DllExport(ExportName = "_eventOpenConsole", CallingConvention = CallingConvention.StdCall)]
+        private static int EventOpenConsole()
+        {
+            RobbotManager.Resolve<IOpenConsoleEvent>()?.Handle(new OpenConsoleContext());
+            return 0;
+        }
+
+        /// <summary>
         /// 酷Q事件: Initialize
         /// </summary>
         /// <param name="authCode">权限码</param>

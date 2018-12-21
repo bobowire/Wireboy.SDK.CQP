@@ -88,6 +88,7 @@
     <Compile Include="Core\Models\GroupMemberInfo.cs" />
     <Compile Include="Core\Models\SdkModelBase.cs" />
     <Compile Include="Core\Models\StrangerInfo.cs" />
+    <Compile Include="Events\Interfaces\IOpenConsoleEvent.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="CoreModule.cs" />
