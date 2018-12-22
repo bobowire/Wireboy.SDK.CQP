@@ -100,7 +100,7 @@ namespace Wireboy.SDK.CQP.Core
         {
             RobbotManager.Resolve<IPrivateMsgEvent>()?.Handle(new PrivateMsgContext()
             {
-                subType = (Enum.IsDefined(typeof(PrivateMessageType), subType) ? (PrivateMessageType)subType: PrivateMessageType.Unknown),
+                subType = (Enum.IsDefined(typeof(PrivateMessageType), subType) ? (PrivateMessageType)subType : PrivateMessageType.Unknown),
                 msgId = msgId,
                 fromQQ = fromQQ,
                 msg = msg,
@@ -297,7 +297,8 @@ namespace Wireboy.SDK.CQP.Core
         [DllExport(ExportName = "_eventRequest_AddGroup", CallingConvention = CallingConvention.StdCall)]
         private static int EventRequestAddGroup(int subType, int sendTime, long fromGroup, long fromQQ, string msg, string responseFlag)
         {
-            RobbotManager.Resolve<IRequestAddGroupEvent>()?.Handle(new RequestAddGroupContext() {
+            RobbotManager.Resolve<IRequestAddGroupEvent>()?.Handle(new RequestAddGroupContext()
+            {
                 subType = (Enum.IsDefined(typeof(RequestGroupAddType), subType) ? (RequestGroupAddType)subType : RequestGroupAddType.Unknow),
                 sendTime = sendTime,
                 fromGroup = fromGroup,

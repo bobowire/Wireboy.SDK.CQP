@@ -4,21 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Wireboy.SDK.CQP.Core.Enums
+namespace Wireboy.SDK.CQP.Events.Enums
 {
     /// <summary>
-    /// 请求类型
-    /// </summary>
-    public enum GroupRequestType
+	/// 请求反馈类型
+	/// </summary>
+	public enum ResponseType
     {
         /// <summary>
-        /// 请求_群添加
+        /// 通过
         /// </summary>
-        GroupAdd = 1,
+        通过 = 1,
         /// <summary>
-        /// 请求_群邀请
+        /// 不通过
         /// </summary>
-        GroupInvitation = 2
+        不通过 = 2
     }
-
 }

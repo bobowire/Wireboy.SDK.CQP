@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\酷Q Air\app\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -77,9 +77,7 @@
     <Compile Include="Core\CQ.cs" />
     <Compile Include="Core\Enums\LogerLevel.cs" />
     <Compile Include="Core\Enums\GroupMemberType.cs" />
-    <Compile Include="Core\Enums\GroupRequestType.cs" />
     <Compile Include="Core\Enums\QQMsgEnums.cs" />
-    <Compile Include="Core\Enums\ResponseType.cs" />
     <Compile Include="Core\Enums\Sex.cs" />
     <Compile Include="Core\Extensions\LongExtension.cs" />
     <Compile Include="Core\Extensions\StringExtension.cs" />
@@ -88,6 +86,7 @@
     <Compile Include="Core\Models\GroupMemberInfo.cs" />
     <Compile Include="Core\Models\SdkModelBase.cs" />
     <Compile Include="Core\Models\StrangerInfo.cs" />
+    <Compile Include="Events\Enums\ResponseType.cs" />
     <Compile Include="Events\Interfaces\IOpenConsoleEvent.cs" />
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />

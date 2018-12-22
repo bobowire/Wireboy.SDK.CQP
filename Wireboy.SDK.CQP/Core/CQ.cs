@@ -8,6 +8,7 @@ using Wireboy.SDK.CQP.Core.Enums;
 using Wireboy.SDK.CQP.Core;
 using Wireboy.SDK.CQP.Core.Models;
 using System.IO;
+using Wireboy.SDK.CQP.Events.Enums;
 
 namespace Wireboy.SDK.CQP
 {
@@ -228,7 +229,7 @@ namespace Wireboy.SDK.CQP
         /// <returns></returns>
         public static int SetFriendAddRequest(string identifying, int requestType, string appendMsg)
         {
-            return CQFuncs.CQ_setFriendAddRequest(RobbotManager.AuthCode, identifying, requestType,appendMsg);
+            return CQFuncs.CQ_setFriendAddRequest(RobbotManager.AuthCode, identifying, requestType, appendMsg);
         }
 
         /// <summary>
@@ -247,13 +248,13 @@ namespace Wireboy.SDK.CQP
         /// 置群添加请求
         /// </summary>
         /// <param name="identifying">请求事件收到的“反馈标识”参数</param>
-        /// <param name="requestType">根据请求事件的子类型区分 #请求_群添加 或 #请求_群邀请</param>
-        /// <param name="responseType">#请求_通过 或 #请求_拒绝</param>
-        /// <param name="appendMsg">操作理由，仅 #请求_群添加 且 #请求_拒绝 时可用</param>
+        /// <param name="requestType">主动申请/群邀请</param>
+        /// <param name="responseType">同意/不同意</param>
+        /// <param name="appendMsg">操作理由，仅 主动申请 且 不通过 时可用</param>
         /// <returns></returns>
-        public static int SetGroupAddRequestV2(string identifying, int requestType, int responseType, string appendMsg)
+        public static int SetGroupAddRequestV2(string identifying, RequestGroupAddType requestType, ResponseType responseType, string appendMsg)
         {
-            return CQFuncs.CQ_setGroupAddRequestV2(RobbotManager.AuthCode, identifying, requestType, responseType, appendMsg);
+            return CQFuncs.CQ_setGroupAddRequestV2(RobbotManager.AuthCode, identifying, (int)requestType, (int)responseType, appendMsg);
         }
         /// <summary>
         /// 增加运行日志
@@ -328,10 +329,18 @@ namespace Wireboy.SDK.CQP
             utils.Resolve(strangerInfo);
             return strangerInfo;
         }
+        /// <summary>
+        /// 获取酷Q图片目录
+        /// </summary>
+        /// <returns></returns>
         public static string GetImageDir()
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "image");
         }
+        /// <summary>
+        /// 获取酷Q语音目录
+        /// </summary>
+        /// <returns></returns>
         public static string GetRecordDir()
         {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "record");
