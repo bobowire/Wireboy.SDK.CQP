@@ -26,10 +26,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -58,11 +59,17 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\ztools.other.MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,62 +78,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SdkModule\Utils\WireboyTimer.cs" />
+    <None Include="App.config" />
     <None Include="me.cqp.wireboy.pTest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Compile Include="Core\CQ.cs" />
-    <Compile Include="Core\Enums\LogerLevel.cs" />
-    <Compile Include="Core\Enums\GroupMemberType.cs" />
-    <Compile Include="Core\Enums\QQMsgEnums.cs" />
-    <Compile Include="Core\Enums\Sex.cs" />
-    <Compile Include="Core\Extensions\LongExtension.cs" />
-    <Compile Include="Core\Extensions\StringExtension.cs" />
-    <Compile Include="Core\JsonUtils.cs" />
-    <Compile Include="Core\Models\GroupInfo.cs" />
-    <Compile Include="Core\Models\GroupMemberInfo.cs" />
-    <Compile Include="Core\Models\SdkModelBase.cs" />
-    <Compile Include="Core\Models\StrangerInfo.cs" />
-    <Compile Include="Events\Enums\ResponseType.cs" />
-    <Compile Include="Events\Interfaces\IOpenConsoleEvent.cs" />
-    <Compile Include="Logger\ILogger.cs" />
-    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="SdkModule\Core\CQ.cs" />
+    <Compile Include="SdkModule\Core\Enums\LogerLevel.cs" />
+    <Compile Include="SdkModule\Core\Enums\GroupMemberType.cs" />
+    <Compile Include="SdkModule\Core\Enums\QQMsgEnums.cs" />
+    <Compile Include="SdkModule\Core\Enums\Sex.cs" />
+    <Compile Include="SdkModule\Core\Extensions\LongExtension.cs" />
+    <Compile Include="SdkModule\Core\Extensions\StringExtension.cs" />
+    <Compile Include="SdkModule\Core\JsonUtils.cs" />
+    <Compile Include="SdkModule\Core\Models\GroupInfo.cs" />
+    <Compile Include="SdkModule\Core\Models\GroupMemberInfo.cs" />
+    <Compile Include="SdkModule\Core\Models\SdkModelBase.cs" />
+    <Compile Include="SdkModule\Core\Models\StrangerInfo.cs" />
+    <Compile Include="SdkEvents\Enums\ResponseType.cs" />
+    <Compile Include="SdkEvents\Interfaces\IOpenConsoleEvent.cs" />
+    <Compile Include="SdkModule\DataBase\QQAccountPools.cs" />
+    <Compile Include="SdkModule\DataBase\SqlServerDb.cs" />
     <Compile Include="CoreModule.cs" />
-    <Compile Include="Core\Export\CQFuncs.cs" />
-    <Compile Include="Core\Export\CQEvents.cs" />
-    <Compile Include="Events\Enums\RequestGroupAddType.cs" />
-    <Compile Include="Events\Enums\RequestFriendAddType.cs" />
-    <Compile Include="Events\Enums\FriendAddType.cs" />
-    <Compile Include="Events\Enums\GroupAdminType.cs" />
-    <Compile Include="Events\Enums\GroupMemberChangedType.cs" />
-    <Compile Include="Events\Enums\GroupMemberDecreaseType.cs" />
-    <Compile Include="Events\Enums\GroupMemberIncreasedType.cs" />
-    <Compile Include="Events\Enums\DiscussMessageType.cs" />
-    <Compile Include="Events\Enums\GroupMessageType.cs" />
-    <Compile Include="Events\Enums\PrivateMessageType.cs" />
-    <Compile Include="Events\PrivateMsgEvent.cs" />
-    <Compile Include="Events\Interfaces\IGroupUploadEvent.cs" />
-    <Compile Include="Events\Interfaces\IFriendAddEvent.cs" />
-    <Compile Include="Events\Interfaces\IRequestAddFriendEvent.cs" />
-    <Compile Include="Events\Interfaces\IGroupMemberIncreaseEvent.cs" />
-    <Compile Include="Events\Interfaces\IGroupMemberDecreaseEvent.cs" />
-    <Compile Include="Events\Interfaces\IGroupAdminEvent.cs" />
-    <Compile Include="Events\Interfaces\IDiscussMsgEvent.cs" />
-    <Compile Include="Events\Interfaces\IPrivateMsgEvent.cs" />
-    <Compile Include="Events\Interfaces\IDisableEvent.cs" />
-    <Compile Include="Events\Interfaces\IEnableEvent.cs" />
-    <Compile Include="Events\Interfaces\IExitEvent.cs" />
-    <Compile Include="Events\Interfaces\IStartupEvent.cs" />
-    <Compile Include="Events\Interfaces\IInitializeEvent.cs" />
-    <Compile Include="Events\RequestGroupAddEvent.cs" />
-    <Compile Include="Events\GroupMsgEvent.cs" />
-    <Compile Include="Events\Interfaces\IRequestAddGroupEvent.cs" />
-    <Compile Include="Events\Interfaces\IGroupMsgEvent.cs" />
-    <Compile Include="Events\Interfaces\IWireboyEvent.cs" />
-    <Compile Include="Models\AppInfo_Const.cs" />
-    <Compile Include="Models\QQJsonAttribute.cs" />
-    <Compile Include="PlugsContainer.cs" />
+    <Compile Include="SdkModule\Core\Export\CQFuncs.cs" />
+    <Compile Include="SdkModule\Core\Export\CQEvents.cs" />
+    <Compile Include="SdkEvents\Enums\RequestGroupAddType.cs" />
+    <Compile Include="SdkEvents\Enums\RequestFriendAddType.cs" />
+    <Compile Include="SdkEvents\Enums\FriendAddType.cs" />
+    <Compile Include="SdkEvents\Enums\GroupAdminType.cs" />
+    <Compile Include="SdkEvents\Enums\GroupMemberChangedType.cs" />
+    <Compile Include="SdkEvents\Enums\GroupMemberDecreaseType.cs" />
+    <Compile Include="SdkEvents\Enums\GroupMemberIncreasedType.cs" />
+    <Compile Include="SdkEvents\Enums\DiscussMessageType.cs" />
+    <Compile Include="SdkEvents\Enums\GroupMessageType.cs" />
+    <Compile Include="SdkEvents\Enums\PrivateMessageType.cs" />
+    <Compile Include="EventsImpl\PrivateMsgEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IGroupUploadEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IFriendAddEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IRequestAddFriendEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IGroupMemberIncreaseEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IGroupMemberDecreaseEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IGroupAdminEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IDiscussMsgEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IPrivateMsgEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IDisableEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IEnableEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IExitEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IStartupEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IInitializeEvent.cs" />
+    <Compile Include="EventsImpl\RequestGroupAddEvent.cs" />
+    <Compile Include="EventsImpl\GroupMsgEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IRequestAddGroupEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IGroupMsgEvent.cs" />
+    <Compile Include="SdkEvents\Interfaces\IWireboyEvent.cs" />
+    <Compile Include="AppInfo.cs" />
+    <Compile Include="SdkModule\Models\QQJsonAttribute.cs" />
+    <Compile Include="SdkModule\PlugsContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RobbotManager.cs" />
+    <Compile Include="SdkModule\RobbotManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
